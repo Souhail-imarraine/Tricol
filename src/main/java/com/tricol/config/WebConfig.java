@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.tricol.controller")
+@ComponentScan(basePackages = "com.tricol")
 public class WebConfig implements WebMvcConfigurer {
 
 }
