@@ -1,12 +1,11 @@
 package com.tricol;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import com.tricol.config.AppConfig;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TricoleApplication {
     public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-        System.out.println("Tricole Application Started!");
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        System.out.println("Tricole Application Started with XML Configuration!");
     }
 }

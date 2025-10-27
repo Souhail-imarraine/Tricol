@@ -1,12 +1,13 @@
 package com.tricol.repository;
 
 import com.tricol.model.Fournisseur;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 import java.util.List;
+import java.util.Optional;
 
-@Repository
-public interface FournisseurRepository extends JpaRepository<Fournisseur, Long> {
-    List<Fournisseur> findBySocieteContaining(String societe);
-    List<Fournisseur> findByEmailEndingWith(String domain);
+public interface FournisseurRepository {
+    Fournisseur save(Fournisseur fournisseur);
+    Optional<Fournisseur> findById(Long id);
+    List<Fournisseur> findAll();
+    void deleteById(Long id);
+    long count();
 }

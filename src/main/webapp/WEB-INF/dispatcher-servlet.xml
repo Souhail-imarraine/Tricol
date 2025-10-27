@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- FournisseurController Bean (Injection manuelle) -->
+    <bean id="fournisseurController" class="com.tricol.controller.FournisseurController">
+        <property name="fournisseurService" ref="fournisseurService"/>
+    </bean>
+    
+    <!-- URL Mapping manuel -->
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/api/v1/fournisseurs">fournisseurController</prop>
+                <prop key="/api/v1/fournisseurs/*">fournisseurController</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <!-- Handler Adapter -->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+
+</beans>
